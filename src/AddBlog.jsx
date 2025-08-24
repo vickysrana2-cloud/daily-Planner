@@ -62,7 +62,7 @@ const AddBlog = () => {
         <input type="date" value={date} className='shadow-inner shadow-pink-600 rounded-3xl px-3.5 py-2 mt-7 text-pink-800' onChange={handleDate} required />
         <textarea name="discription" value={message} id="textareaId" placeholder="Enter Task" className='shadow-inner shadow-pink-600 rounded-2xl mt-7 text-pink-800 px-3 py-3' required onChange={handleMessage}></textarea>
         {/* { disableBtn ? <button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800' disabled><IoMdAdd className='text-2xl mx-auto' /></button>:<button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800'><IoMdAdd className='text-2xl mx-auto' /></button>} */}
-        <button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800   disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none ' disabled={disableBtn}><IoMdAdd className='text-2xl mx-auto' /></button>
+        <button className='shadow-lg/55 border border-pink-500 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800   disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none ' disabled={disableBtn}><IoMdAdd className='text-2xl mx-auto' /></button>
       </form>
     </div>
   )
