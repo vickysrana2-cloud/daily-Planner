@@ -29,7 +29,16 @@ const AddBlog = () => {
   async function handleSubmit(e) {
 
     if (disableBtn)return;  // it ignore if already disabled
-    setDisableBtn(true)     // It will disable stop if user already submited the form . 
+    setDisableBtn(true)     // It will disable stop if user already submited the form .
+
+    if (title.trim()==""){
+      alert("Oops.. Title is blank ")
+      return;       // It is Not allowing the Submition If the Title field is try to submit only white Spaces .
+    }
+    if (message.trim()==""){
+      alert("Please write Your Today's Task")
+      return;     // It is Not allowing the Submition If the message field is try to submit only white Spaces .
+    }
 
     e.preventDefault();
     try {
@@ -49,11 +58,11 @@ const AddBlog = () => {
     <div className='max-w-80 rounded-2xl bg-pink-400 mx-auto my-28 p-5  shadow-xl/50  shadow-pink-600'>
       <h1 className='text-center font-bold text-3xl my-5 text-pink-800'>Add Task</h1>
       <form className="flex flex-col mt-5" action="" onSubmit={handleSubmit}>
-        <input type="text" placeholder='Title' className='shadow-inner shadow-pink-600 rounded-3xl px-3 py-2 mt-7 text-pink-800' onChange={handleTitle} required />
-        <input type="date" className='shadow-inner shadow-pink-600 rounded-3xl px-3 py-2 mt-7 text-pink-800' onChange={handleDate} required />
-        <textarea name="discription" id="textareaId" placeholder="Enter Task" className='shadow-inner shadow-pink-600 rounded-2xl mt-7 text-pink-800 px-3 py-3' onChange={handleMessage}></textarea>
+        <input type="text" value={title}  placeholder='Title' className='shadow-inner shadow-pink-600 rounded-3xl px-3.5 py-2 mt-7 text-pink-800' onChange={handleTitle} required />
+        <input type="date" value={date} className='shadow-inner shadow-pink-600 rounded-3xl px-3.5 py-2 mt-7 text-pink-800' onChange={handleDate} required />
+        <textarea name="discription" value={message} id="textareaId" placeholder="Enter Task" className='shadow-inner shadow-pink-600 rounded-2xl mt-7 text-pink-800 px-3 py-3' required onChange={handleMessage}></textarea>
         {/* { disableBtn ? <button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800' disabled><IoMdAdd className='text-2xl mx-auto' /></button>:<button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800'><IoMdAdd className='text-2xl mx-auto' /></button>} */}
-        <button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800   disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none ' disabled={disableBtn}><IoMdAdd className='text-2xl mx-auto' /></button>
+        <button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800   disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none ' disabled={disableBtn}><IoMdAdd className='text-2xl mx-auto' /></button>
       </form>
     </div>
   )
