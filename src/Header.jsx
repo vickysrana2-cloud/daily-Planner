@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdEditSquare } from "react-icons/md";
 import { MdOutlineMenuBook } from "react-icons/md";
-import logo from "./assets/myPlaneLogo_darkpink_bordered.svg"
+import logo from "./assets/myPlanLogo_darkpink.svg"
 import { useNavigate } from 'react-router';
 
 const Header = () => {
