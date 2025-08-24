@@ -1,0 +1,24 @@
+<!-- myPlan - horizontal logo -->
+<svg width="320" height="72" viewBox="0 0 320 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="myPlan logo">
+  
+
+  <!-- icon -->
+  <g transform="translate(8,8)">
+    <!-- soft background ring -->
+    <circle cx="28" cy="28" r="28" fill="url(#mp-grad)" opacity="0.12" stroke="#F8BBD0" stroke-width="2"></circle>
+    <!-- paper-Plan silhouette -->
+    <g transform="translate(6,6)">
+      <path d="M6 24L40 6c1.3-.7 2.9.6 2.4 2.1L35 26.5c-.2.6-.7 1-1.3 1.2l-8.4 2.4c-.4.1-.7.5-.8.9l-1.7 7.3c-.3 1.4-2.1 1.7-2.8.5l-4.4-7.4c-.2-.4-.6-.7-1-.8L6.7 29C5.2 28.7 4.9 26.9 6 26z" fill="url(#mp-grad)" stroke="#F8BBD0" stroke-width="2"></path>
+      <!-- contrail -->
+      <path d="M12 32c-3.2 0-6.3-1.2-8.6-3.5" stroke="#F8BBD0" stroke-width="2.5" stroke-linecap="round"></path>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <g transform="translate(80,48)">
+    <text class="mp-word" x="0" y="0" font-size="28" fill="#C2185B" letter-spacing="0.5" stroke="#F8BBD0" stroke-width="2">my</text>
+    <text class="mp-word" x="46" y="0" font-size="28" fill="#C2185B" letter-spacing="0.5" stroke="#F8BBD0" stroke-width="2">Plan</text>
+    <!-- underline accent -->
+    <rect x="46" y="6" width="82" height="4" rx="2" fill="url(#mp-grad)" opacity="0.85" stroke="#F8BBD0" stroke-width="2"></rect>
+  </g>
+</svg>
