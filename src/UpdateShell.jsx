@@ -13,7 +13,7 @@ const UpdateShell = () => {
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate()
-  const [disableBtn, setDisableBtn]=useState(false)
+  const [disableBtn, setDisableBtn] = useState(false)
 
 
 
@@ -55,7 +55,21 @@ const UpdateShell = () => {
 
 
   async function handleSubmit(e) {
+
+    if (disableBtn) return;  // it ignore if already disabled
+    setDisableBtn(true)     // It will disable and stoped if user already submited the form .
+
     e.preventDefault();
+
+    if (title.trim() == "") {
+      alert("Oops.. Title is blank ")
+      return;       // It is Not allowing the Submition If the Title field is try to submit only white Spaces .
+    }
+    if (message.trim() == "") {
+      alert("Please write Your Today's Task")
+      return;     // It is Not allowing the Submition If the message field is try to submit only white Spaces .
+    }
+
     try {
       const userData = {
         title: title,
@@ -64,7 +78,6 @@ const UpdateShell = () => {
       }
       const response = await axios.put("https://6880ec39f1dcae717b63fca1.mockapi.io/users/" + id, userData);
       // console.log(response)
-      setDisableBtn(true);
       navigate("/displayShell")
     } catch (error) {
       console.log(error);
@@ -74,10 +87,10 @@ const UpdateShell = () => {
     <div className='max-w-80 rounded-2xl bg-pink-400 mx-auto my-28 p-5  shadow-xl/50  shadow-pink-600'>
       <h1 className='text-center font-bold text-3xl my-5 text-pink-800'>Update Task of {date}</h1>
       <form className="flex flex-col mt-5" action="" onSubmit={handleSubmit}>
-        <input type="text" value={title} placeholder='Title' className='shadow-inner shadow-pink-600 rounded-3xl px-3 py-2 mt-7 text-pink-800' onChange={handleTitle} />
-        <input type="date" value={date} className='shadow-inner shadow-pink-600 rounded-3xl px-3 py-2 mt-7 text-pink-800' onChange={handleDate} />
-        <textarea name="discription" value={message} id="textareaId" className='shadow-inner shadow-pink-600 rounded-2xl mt-7 text-pink-800 px-3 py-3' onChange={handleMessage}></textarea>
-        { disableBtn ? <button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800' disabled><IoMdAdd className='text-2xl mx-auto' /></button>:<button className='shadow-lg/55 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800'><IoMdAdd className='text-2xl mx-auto' /></button>}
+        <input type="text" value={title} placeholder='Title' className='shadow-inner shadow-pink-600 rounded-3xl px-3.5 py-2 mt-7 text-pink-800' onChange={handleTitle} required />
+        <input type="date" value={date} className='shadow-inner shadow-pink-600 rounded-3xl px-3.5 py-2 mt-7 text-pink-800' onChange={handleDate} required />
+        <textarea name="discription" value={message} id="textareaId" className='shadow-inner shadow-pink-600 rounded-2xl mt-7 text-pink-800 p-3' onChange={handleMessage} required></textarea>
+        <button className='shadow-lg/55 border border-pink-500 shadow-pink-600 rounded-3xl mt-7 p-1 duration-300 hover:shadow text-pink-800   disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none ' disabled={disableBtn}><IoMdAdd className='text-2xl mx-auto' /></button>
       </form>
     </div>
   )
